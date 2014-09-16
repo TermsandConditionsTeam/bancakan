@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="isi">
-		<div id="map" style="width: 920px; height: 456px">
+		<div id="map" style="width: 960px; height: 456px;margin-top:-10px">
 			<!-- Modal -->
 			<div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 			  <div class="modal-dialog modal-lg">

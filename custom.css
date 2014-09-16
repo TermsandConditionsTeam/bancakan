@@ -1,3 +1,11 @@
+      body
+      {
+        background: url("assets/images/body.png") no-repeat center center; 
+        background-size: 100% 573px;
+        background-position: initial;
+
+      }
+
       header
       {
         padding-left: 20px;
@@ -5,8 +13,8 @@
         padding-right: 20px;
         padding-bottom: 0px;
         min-width: 1280px;
-        min-height: 130px;
-        background:url("assets/images/header.png") repeat;
+        min-height: 90px;
+        background:#ffffff;
       }
       nav
       {
@@ -18,34 +26,45 @@
         min-height: 40px;
         background:url("assets/images/menu.png") repeat;
       }
+      .aaa{
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .aaa:hover { 
+        background-color: #f5c39f;
+        border-radius:7px;
+      }
+      .aaa.active
+      {
+        background-color: #f5c39f;
+        border-radius:7px;
+      }
       .container
       {
-        width: 970px;
-        
+        width: 1028px;
       }
       .logo
       {
         padding: 10px 20px;
         float:left;
-        
+        margin-top:30px;
         width: 340px;
         height: 100%;
       }
       .login
       {
-        height: 95px;
+        height: 30px;
         width: 280px;
         float:right;
-        padding: 10px 20px;
-        background: #990000;
-        margin-top: 20px;
+        padding: 5px 10px;
+        margin-top: 48px;
         border-radius: 10px;
       }
       .user
       {
-        margin-top: 12px;
         margin-bottom:10px;
-        font-size: 14px;
+        font-size: 17px;
+        font-weight: bold;
       }
       .content
       {
@@ -92,7 +111,7 @@
         padding-bottom: 0px;
         min-width: 1280px;
         min-height: 100px;
-        background:url("assets/images/footer.png") repeat;
+        background:#915224;
         bottom: 0;
       }
       .footer2
@@ -103,7 +122,7 @@
         padding-bottom: 0px;
         min-width: 1280px;
         min-height: 40px;
-        background:url("assets/images/footer2.png") repeat;
+        background:#532f15;
         bottom: 0;
       }
       a:focus,a:hover
@@ -112,6 +131,7 @@
       }
       .isi
       {
+        
         min-width: 900px;
         margin-left: 20px;
       }

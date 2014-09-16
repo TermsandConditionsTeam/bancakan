@@ -64,8 +64,29 @@
         <div class="logo">
           <a href="index.php"><img style="margin-top:8px;" src="assets/images/logo.png" alt="Logo" /></a>
         </div>
+        <div style="margin-top:45px;float:left;margin-left:-180px">
+          <ul style="height:30px; margin-top:10px;list-style: none;" class="navbar-nav">
+              <li style="margin-right:10px;"><a class="aaa active" style="padding-top: 5px; padding-bottom: 5px; color:#76421c;font-size:17px;font-weight:bold;" href="index.php">Home</a></li>
+              <li style="margin-right:10px"><a class="aaa" style="padding-top: 5px; padding-bottom: 5px;color:#76421c;font-size:17px;font-weight:bold;" id="jelajah" href="#">Jelajah</a></li>              
+              <li class="dropdown">
+                <a class="aaa" style="height:30px;padding-top: 5px; padding-bottom: 5px; margin-right:10px;color:#76421c;margin-top:-10px;font-size:17px;font-weight:bold;" href="#" data-toggle="dropdown">Permainan <b class="caret"></b></a>
+                <ul style="margin-top:-1px;border:none;background:#f5c39f;" class="dropdown-menu">
+                  <li><a id="cariP" style="color:#76421c;font-size:17px;font-weight:bold;" href="#">Cari Permainan</a></li>
+                  <?php 
+                    if(isset($_SESSION['email']))
+                    {
+                      ?>
+                        <li><a id="tambahP" style="color:#76421c;font-size:17px;font-weight:bold;" href="#">Buat Permainanmu Sendiri!</a></li>
+                      <?php
+                    }
+                  ?>
+                </ul>
+              </li>
+              <li style="margin-right:10px"><a class="aaa" style="padding-top: 5px; padding-bottom: 5px;color:#76421c;font-size:17px;font-weight:bold;" href="#">Bantuan</a></li>
+           </ul>
+        </div>
         <div class="login">          
-          <div style="color:white;" class="user">Selamat Datang,  
+          <div style="float:left;color:#b08972;" class="user">Selamat Datang,  
             <?php
               if(!isset($_SESSION['email']))
               {
@@ -93,18 +114,13 @@
                       </div>
                       <ul style="list-style:none; margin-left:-40px;" class="navbar-nav">
                         <li class="dropdown">
-                          <a style="height:30px; margin-right:10px;margin-top:-10px" href="#" data-toggle="dropdown">Profile <b class="caret"></b></a>
+                          <a style="height:30px; margin-right:10px;margin-top:-10px" href="#" data-toggle="dropdown"> <b style="margin-top:3px;margin-left:5px;" class="caret"></b></a>
                           <ul class="dropdown-menu">
                             <li><a href="#">Edit Profile</a></li>
                             <li><a href="#">Lencanaku</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
+                            <li style="margin-right:10px"><a href="logout.php">Logout</a></li>
                           </ul>
                         </li>
-                        <li style="margin-right:10px"><a href="logout.php">Logout</a></li>
                       </ul>
                   ';
               }
@@ -112,7 +128,7 @@
         </div>
       </div>
     </header>
-    <nav>
+    <!--nav>
       <div class="container">
            <ul style="height:30px; margin-top:10px;margin-left:-20px;list-style: none;" class="navbar-nav">
               <li style="margin-right:10px;"><a style=" color:white;" href="index.php">Home</a></li>
@@ -122,56 +138,30 @@
                 <ul style="margin-top:10px;border:none;background:#ffcc00;" class="dropdown-menu">
                   <li><a id="cariP" style="color:white"; href="#">Cari Permainan</a></li>
                   <?php 
-                    if(isset($_SESSION['email']))
+                   /* if(isset($_SESSION['email']))
                     {
                       ?>
                         <li><a id="tambahP" style="color:white"; href="#">Buat Permainanmu Sendiri!</a></li>
                       <?php
-                    }
+                    }*/
                   ?>
                 </ul>
               </li>
               <li style="margin-right:10px"><a style="color:white;" href="#">Bantuan</a></li>
            </ul>
       </div>
-    </nav>
+    </nav-->
 
     <div id="contents" class="content">
       <div class="container">
         <div class="isi">
-          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="assets/images/foto1.png" width="930px" alt="foto1">
-                <div class="carousel-caption">
-                  <h3>caption 1</h3>
-                  <p>caption 1</p>
-                </div>
-              </div>
-              <div class="item">
-                <img src="assets/images/foto1.png" width="930px" alt="foto2">
-                <div class="carousel-caption">
-                  <h3>caption 2</h3>
-                  <p>caption 2</p>
-                </div>
-              </div>
+          <div style="height:450px;padding:10px 10px;">
+            <div style="float:left">
+              <div style="margin-top:30px;"><img src="assets/images/bancakan.png"></div>
+              <button id="gabung" style="height:60px;width:200px;line-height: 10px;margin-top:100px;background:yellow;" class="btn btn-lg btn-block" type="submit">Gabung Sekarang!</button>
             </div>
-
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-              <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-              <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
+            <div style="float:right;">
+            </div>
           </div>
         </div>
       </div>
