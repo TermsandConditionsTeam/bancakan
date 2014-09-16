@@ -36,12 +36,19 @@
 
 		</div>
 		<script>
-            var geoJson1 = reqData('1');
-            var geoJson2 = geoJson1.concat(reqData('2'));
-           
+            var geoJson1 = reqData('2');
+            //var geoJson2 = geoJson1.concat(reqData('2'));
+            var southWest = L.latLng(-6.99888,107.47473),
+                northEast = L.latLng(-6.85557,107.70098),
+                bounds = L.latLngBounds(southWest, northEast);
+
                 L.mapbox.accessToken = 'pk.eyJ1IjoicmlmcWl0aG9taSIsImEiOiJpUjFieHdVIn0.Cz3ME0XeH01-5IRnCJl3SA';
-                var map = L.mapbox.map('map', 'rifqithomi.jb5ibjeg')
-                    .setView([-1.527, 118.215], 5);
+                var map = L.mapbox.map('map', 'rifqithomi.jb5ibjeg',{
+                    maxBounds: bounds,
+                    minZoom:11
+                })
+                    .setView([-6.91486,107.608], 12)
+                    .fitBounds(bounds);
 
                 var myLayer = L.mapbox.featureLayer().addTo(map);
 
@@ -117,7 +124,7 @@
 
                 // Add features to the map
                 myLayer.setGeoJSON(geoJson1);
-                map.on('zoomend', function(e) {
+                /*map.on('zoomend', function(e) {
                                 if (map.getZoom() <= 5) {
                                     myLayer.setGeoJSON(geoJson1);
                                 } 
@@ -126,7 +133,7 @@
                                     myLayer.setGeoJSON(geoJson2);
                                 }
                                 
-                });
+                });*/
 
 
            function reqData(reqNumber){
