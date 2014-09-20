@@ -110,14 +110,14 @@
 ?>
 <div class="container">
 	<div class="isi">
-		<div style="padding:2px 2px;margin-bottom:10px;height:70px;">
+		<div style="background:white;padding:2px 2px;margin-bottom:10px;height:70px;">
 			<?php 
 				echo "<img style='float:left;' src='assets/images/".$icon.".png' alt='' width='50px' height='60px'>&nbsp;";
 				echo "<span style='font-size:20px;margin-top:-20px;'>".$nama."</span><br/>";
 				echo "&nbsp;<span style='font-size:10px;'>".$kategori."</span>";
 			?>
 		</div>
-		<div style="padding:2px 2px;margin-bottom:30px;height:180px;box-shadow: 2px 3px 2px #888888;">
+		<div style="background:white;padding:2px 2px;margin-bottom:10px;height:180px;box-shadow: 2px 3px 2px #888888;">
 			<div style="height:180px;float:left;width:600px;">
 				<ul>
 					<li>Alamat : <?php echo $alamat ;?></li>
@@ -175,10 +175,10 @@
 			</div>
 			<div id="map" style="width: 300px; height: 170px;float:right"></div>
 		</div>
-		<div style="padding:2px 2px;margin-bottom:30px;height:180px;box-shadow: 2px 3px 2px #888888;">
+		<div style="background:white;padding:2px 2px;margin-bottom:30px;height:180px;box-shadow: 2px 3px 2px #888888;">
 			sdsdsds
 		</div>
-		<div style="padding:2px 2px;margin-bottom:30px;height:auto;box-shadow: 2px 3px 2px #888888;">
+		<div style="background:white;padding:2px 2px;margin-bottom:30px;height:auto;box-shadow: 2px 3px 2px #888888;">
 			<form id='comment' method='post'>
 				<div style="margin-bottom:30px;margin-top:20px;width:900px;height:50px;padding:7px 0px;">
 					

@@ -121,6 +121,45 @@
 
 		echo json_encode($hasilss);//, JSON_NUMERIC_CHECK);
 	}
+	elseif ($req =="3") {
+		$qrPer = "SELECT * FROM permainan";
+		$getPer = mysql_query($qrPer);
+		$type = "Feature";
+		$hasilss = array();
+		$hasil = array(
+				   'type'      => 'Feature'
+				);
+		while($resultPer=mysql_fetch_assoc($getPer)){
+			$geometry = array(
+							'type' => 'Point',
+							'coordinates' => array($resultPer['long_per'],$resultPer['lat_per'])
+						);
+			$icon = array(
+						'iconUrl' => 'assets/images/'.$resultPer['nama_file_icon'].'.png',
+						'iconSize' => array(32,43),
+						'iconAnchor' => array(16,42),
+						'popupAnchor' => array(0,-40),
+						'className' => 'dot'
+					);
+			$propertiess = array(
+							'clue' => $resultPer['clue'],
+	                        'difficult' => $resultPer['difficult'],
+	                        'tanggal' => $resultPer['tanggal'],
+	                        'favorite' => $resultPer['favorite'],
+	                        'mine' => $resultPer['id_tab_user'],
+							'jenis' => '3',
+							'icon' => $icon,
+							'city' => $resultPer['nama_per']
+						);
+			$hasil['geometry'] =  $geometry;
+			$hasil['id'] = $resultPer['id_permainan'];
+			$hasil['properties'] = $propertiess;
+			$hasilss[] = $hasil;
+
+		}
+		echo json_encode($hasilss);//, JSON_NUMERIC_CHECK);
+		
+	}
 	
 
 ?>

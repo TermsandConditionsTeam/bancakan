@@ -1,6 +1,6 @@
 <div class="container">
 	<h2 style="margin-left:220px;">Daftar</h2>
-	<div style="border:2px solid;border-radius: 10px;width:500px;padding:10px 20px;background:yellow;margin:auto;">
+	<div style="border:2px solid;border-radius: 10px;width:500px;padding:10px 20px;background:#76421c;margin:auto;">
 		<form name="regist" action="register.php" autocomplete="off" role="form" method="post">
 			<input style="height:35px;margin-bottom:10px;" name="email" id="email" type="email" class="form-control" placeholder="Email" required autofocus>
         	<input style="height:35px;margin-bottom:10px;float:left;width:225px;" name="fname" id="fname" type="text" class="form-control" placeholder="Nama Depan" required>

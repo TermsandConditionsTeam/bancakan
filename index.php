@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!--link rel="shortcut icon" href="../../assets/ico/favicon.ico"-->
-    <title>Budaya Kita</title>
+    <title>Bancakan</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
     <script src="js/jquery.min.js"></script>
@@ -58,14 +58,14 @@
     }
 ?>
 
-  <body>
+  <body class="idx">
     <header>
       <div class="container">
         <div class="logo">
           <a href="index.php"><img style="margin-top:8px;" src="assets/images/logo.png" alt="Logo" /></a>
         </div>
         <div style="margin-top:45px;float:left;margin-left:-180px">
-          <ul style="height:30px; margin-top:10px;list-style: none;" class="navbar-nav">
+          <ul id="navigation" style="height:30px; margin-top:10px;list-style: none;" class="navbar-nav">
               <li style="margin-right:10px;"><a class="aaa active" style="padding-top: 5px; padding-bottom: 5px; color:#76421c;font-size:17px;font-weight:bold;" href="index.php">Home</a></li>
               <li style="margin-right:10px"><a class="aaa" style="padding-top: 5px; padding-bottom: 5px;color:#76421c;font-size:17px;font-weight:bold;" id="jelajah" href="#">Jelajah</a></li>              
               <li class="dropdown">
@@ -86,16 +86,16 @@
            </ul>
         </div>
         <div class="login">          
-          <div style="float:left;color:#b08972;" class="user">Selamat Datang,  
+          <div style="float:left;color:#b08972;" class="user">  
             <?php
               if(!isset($_SESSION['email']))
               {
-                echo 'Pengunjung !
+                echo '
                       </div>
                       <ul style="list-style:none;" class="navbar-nav">
                         <li id = "drops" class="dropdown">
                           <a style="color:#e8aa00;height:30px; margin-left:-40px;margin-right:10px;margin-top:-30px" href="#"  data-toggle="dropdown">Masuk</a>
-                          <div style="margin-left:-60px;width:280px;margin-top:0px;padding:10px 20px;background:#990000;border:none;border-radius:10px;" class="dropdown-menu">
+                          <div style="margin-left:-60px;width:280px;margin-top:0px;padding:10px 20px;background:#76421c;border:none;border-radius:10px;" class="dropdown-menu">
                             <form id="formLogin" name="login" action="login.php" autocomplete="off" role="form" method="post">
                               <input style="height:35px;margin-bottom:10px;" name="username" id="username" type="text" class="form-control" placeholder="Email" required autofocus>
                               <input style="height:35px;margin-bottom:10px;" name="pass" id="pass" type="password" class="form-control" placeholder="Password" required>
@@ -110,7 +110,7 @@
               }
               else
               {
-                echo $_SESSION['fname'].' '.$_SESSION['lname'].' !
+                echo "Selamat Datang, ".$_SESSION['fname'].' '.$_SESSION['lname'].' !
                       </div>
                       <ul style="list-style:none; margin-left:-40px;" class="navbar-nav">
                         <li class="dropdown">
@@ -128,6 +128,7 @@
         </div>
       </div>
     </header>
+    <div id="hhr"></div>
     <!--nav>
       <div class="container">
            <ul style="height:30px; margin-top:10px;margin-left:-20px;list-style: none;" class="navbar-nav">
@@ -156,9 +157,45 @@
       <div class="container">
         <div class="isi">
           <div style="height:450px;padding:10px 10px;">
+            <div style="float:right;width:310px;height:387px;margin-top:30px;border-radius:7px;background:white;">
+              <div style="height:50px; border-radius: 7px 7px 0px 0px;background:#76421c;font-size:18px;color:white;padding:10px 20px;font-weight:bold;">
+                Event Mendatang
+              </div>
+              <div style="padding: 10px 15px;margin-bottom:20px;">
+                <div class="eves">
+                  <span style="font-size:25px;font-weight:bold;color:white;">19</span>
+                  <span style="font-size:12px;font-weight:bold;color:white;"><p>Sept</p></span>
+                </div>
+                aaaaaaaaaaaa
+              </div><br/>
+              <div style="padding: 10px 15px;margin-bottom:20px;">
+                <div class="eves">
+                  <span style="font-size:25px;font-weight:bold;color:white;">19</span>
+                  <span style="font-size:12px;font-weight:bold;color:white;"><p>Sept</p></span>
+                </div>
+                aaaaaaaaaaaa
+              </div><br/>
+              <div style="padding: 10px 15px;margin-bottom:20px;">
+                <div class="eves">
+                  <span style="font-size:25px;font-weight:bold;color:white;">19</span>
+                  <span style="font-size:12px;font-weight:bold;color:white;"><p>Sept</p></span>
+                </div>
+                aaaaaaaaaaaa
+              </div><br/>
+               <button style="margin-left:35%;margin-top:30px;width:100px;height:40px;" class="btn btn-lg btn-block" type="button">
+                <a id="read" href="#">More</a>
+              </button>
+            </div>
             <div style="float:left">
               <div style="margin-top:30px;"><img src="assets/images/bancakan.png"></div>
-              <button id="gabung" style="height:60px;width:200px;line-height: 10px;margin-top:100px;background:yellow;" class="btn btn-lg btn-block" type="submit">Gabung Sekarang!</button>
+              <?php
+                if(!isset($_SESSION['email']))
+                {
+                  echo '<button style="height:60px;width:200px;line-height: 10px;margin-top:100px;background:yellow;" class="btn btn-lg btn-block" type="button">
+                          <a id="gabung" href="#">Gabung Sekarang!</a>
+                        </button>';
+                }
+              ?>             
             </div>
             <div style="float:right;">
             </div>
@@ -202,17 +239,41 @@
       </div>
     </div>
     <script type="text/javascript">
+      $(function() {
+          $('#navigation li a').click(function() {
+              $('#navigation li a').removeClass('active');
+              $(this).addClass('active');
+          });
+      });
       $("#daftar").click(function(){
           $("#contents").load("registerForm.php");
+          $("body").removeClass('idx');
+          $("#hhr").html('');
+          $("#hhr").html('<hr>');
+        });
+      $("#gabung").click(function(){
+          $("#contents").load("registerForm.php");
+           $("body").removeClass('idx');
+           $("#hhr").html('');
+          $("#hhr").html('<hr>');
         });
       $("#jelajah").click(function(){
           $("#contents").load("jelajah.php");
+           $("body").removeClass('idx');
+           $("#hhr").html('');
+          $("#hhr").html('<hr>');
         });
       $("#cariP").click(function(){
           $("#contents").load("permainan.php?pageId=1");
+           $("body").removeClass('idx');
+           $("#hhr").html('');
+          $("#hhr").html('<hr>');
         });
       $("#tambahP").click(function(){
           $("#contents").load("permainan.php?pageId=2");
+           $("body").removeClass('idx');
+           $("#hhr").html('');
+          $("#hhr").html('<hr>');
         });
     </script>
   </body>

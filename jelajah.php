@@ -14,12 +14,8 @@
 					</div>
 					<div class="container-fluid">
 					    <div class="row">
-					        <div style="border-bottom-left-radius:5px;border-right: 5px solid black;margin-left:34px;" class="col-sm-3 col-md-2 sidebar">
-					        	<ul class="nav nav-sidebar">
-						            <li><a id="sejarah" style="margin-right:5px;" href="#">Preview</a></li>
-						            <li><a id="event" style="margin-right:9px;" href="#">Event</a></li>
-						            <li><a id="gal" style="margin-right:9px;" href="#">Galery Foto</a></li>
-						            <li><a id="vd" style="margin-right:9px;" href="#">Video</a></li>
+					        <div  style="border-bottom-left-radius:5px;border-right: 5px solid black;margin-left:34px;" class="col-sm-3 col-md-2 sidebar">
+					        	<ul id="menus" class="nav nav-sidebar">
 					          	</ul>
 					        </div>
 					        <div style="margin-top:60px;" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -37,9 +33,9 @@
 		</div>
 		<script>
             var geoJson1 = reqData('2');
-            //var geoJson2 = geoJson1.concat(reqData('2'));
+            var geoJson2 = geoJson1.concat(reqData('3'));
             var southWest = L.latLng(-6.99888,107.47473),
-                northEast = L.latLng(-6.85557,107.70098),
+                northEast = L.latLng(-6.85557,107.75098),
                 bounds = L.latLngBounds(southWest, northEast);
 
                 L.mapbox.accessToken = 'pk.eyJ1IjoicmlmcWl0aG9taSIsImEiOiJpUjFieHdVIn0.Cz3ME0XeH01-5IRnCJl3SA';
@@ -81,7 +77,14 @@
                 });
                 myLayer.on('click',function(e){
                     if(e.layer.feature.properties.jenis==2)
-                    {   $("#budayaConts").html(e.layer.feature.properties.sejarah);
+                    {   
+                        $("#menus").html('');
+                        $("#menus").append('<li><a id="sejarah" style="margin-right:5px;" href="#">Preview</a></li>');
+                        $("#menus").append('<li><a id="event" style="margin-right:9px;" href="#">Event</a></li>');
+                        $("#menus").append('<li><a id="gal" style="margin-right:9px;" href="#">Galery Foto</a></li>');
+                        $("#menus").append('<li><a id="vd" style="margin-right:9px;" href="#">Video</a></li>');
+
+                        $("#budayaConts").html(e.layer.feature.properties.sejarah);
                         $("#sejarah").click(function(){
                             $("#budayaConts").html(e.layer.feature.properties.sejarah);
                         });
@@ -89,7 +92,6 @@
                             $("#budayaConts").html('');
                             for (var i = 0; i< e.layer.feature.properties.event.length;i++){
                                 $("#budayaConts").append("<div class='col-lg-3 col-md-4 col-xs-6 thumb'>"+e.layer.feature.properties.event[i].nama_event+"<br/>"+e.layer.feature.properties.event[i].tanggal+"<br/><a onClick='reply_clicks(this.id)' id='detEve"+e.layer.feature.properties.event[i].id_event+"' href='#'>Lihat Detail</a></div>");
-                                //$("#budayaConts").append("<input name ='idEv' type='hidden' class='form-control'  value='"+e.layer.feature.properties.event[i].id_event+"' readonly='yes'>");
                             }
 
                             
@@ -118,22 +120,36 @@
                             
                         });
                     }
+                    if(e.layer.feature.properties.jenis==3)
+                    {
+                        $("#menus").html('');
+                        $("#menus").append('<li><a id="clue" style="margin-right:5px;" href="#">Clue</a></li>');
+                        $("#budayaConts").html(e.layer.feature.properties.clue);
+
+                        $("#clue").click(function(){
+                            $("#budayaConts").html(e.layer.feature.properties.clue);
+                        });
+
+                        $('#nameBudaya').html(e.layer.feature.properties.city+"&nbsp;<a style='font-size:12px;' id='detBud' href='#'>Lihat detail</a>");
+                        $('#myModal').modal('show'); 
+
+                        $("#detBud").click(function(){
+                            $('#myModal').modal('toggle');
+                            var delay=200;
+                            setTimeout(function(){
+                                $("body").removeClass("modal-open");
+                                $("#contents").load('detail.php?pages=3&idPer='+e.layer.feature.id);  
+                            },delay); 
+                            
+                        });
+
+                    }
                     
                     map.setView( e.layer.feature.geometry.coordinates,12);  
                 });
 
                 // Add features to the map
-                myLayer.setGeoJSON(geoJson1);
-                /*map.on('zoomend', function(e) {
-                                if (map.getZoom() <= 5) {
-                                    myLayer.setGeoJSON(geoJson1);
-                                } 
-                                else if(map.getZoom() > 5)
-                                {
-                                    myLayer.setGeoJSON(geoJson2);
-                                }
-                                
-                });*/
+                myLayer.setGeoJSON(geoJson2);
 
 
            function reqData(reqNumber){
@@ -168,7 +184,11 @@
             
 		</script>
         <div class="pemberitahuan">
-            aaaaaaaaaaaaa
+            <img src="assets/images/map-marker2-permainan(32xx).png"> : Icon permainan &nbsp;
+            <img src="assets/images/map-marker2-busana(32xx).png"> : Icon busana &nbsp;
+            <img src="assets/images/map-marker-building(32xx).png"> : Icon bangunan &nbsp;
+            <img src="assets/images/map-marker2-makanan(32xx).png"> : Event kuliner &nbsp;
+            <img src="assets/images/map-marker2-musik(32xx).png"> : Event musik &nbsp;
         </div>
 	</div>
 </div>
