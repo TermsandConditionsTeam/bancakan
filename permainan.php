@@ -1,9 +1,112 @@
 <?php
+include "dbcon.php";
 	$pageId=$_GET['pageId'];
 
 	if($pageId == 1)
 	{
-				
+		$qrPermainan = "SELECT 
+						id_permainan,
+						lat_per,
+						long_per,
+						nama_per,
+						nama_file_icon,
+						favorite,
+						clue,
+						difficult,
+						tanggal,
+						id_tab_user
+						FROM permainan
+			";
+			 $getPermainan = mysql_query($qrPermainan);
+               
+			?>
+				 <div class='table-responsive'>
+				 	<table style='width:100%' class='table table-hover'>
+				 		<thead>
+							<tr>
+								<label><h4>Rekaptulasi Project :</h4></label>
+							</tr>
+							<tr>
+								<th style='font-size:90%' valign='middle'>
+									Nama Permainan
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									Difficult
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									Tanggal
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									Latitude
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									Longitude
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									Tipe Permainan
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									Favorite
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									Pembuat
+								</th>
+								<th style='font-size:90%' valign='middle'>
+									
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						
+			<?php
+				 while($resultPermainan=mysql_fetch_assoc($getPermainan)){
+				 	switch ($resultPermainan['difficult']) {
+				 		case 1:
+				 			$dif = "Easy";
+				 			break;
+				 		
+				 		case 2:
+				 			$dif = "Medium";
+				 			break;
+
+				 		case 3:
+				 			$dif = "Hard";
+				 			break;	
+				 	}
+					?>
+						<tr>
+							<td width='10%'><?php echo $resultPermainan['nama_per']; ?></td>
+							<td width='10%'><?php echo $dif ; ?></td>
+							<td width='10%'><?php echo $resultPermainan['tanggal']; ?></td>
+							<td width='10%'><?php echo $resultPermainan['lat_per']; ?></td>
+							<td width='10%'><?php echo $resultPermainan['long_per']; ?></td>
+							<td width='10%'><img src="assets/images/<?php echo $resultPermainan['nama_file_icon']; ?>.png"></td>
+							<td width='10%'><?php echo $resultPermainan['favorite']; ?></td>
+							<?php
+								$qrUserPer = "SELECT nama_depan, nama_belakang
+											FROM user 
+											WHERE id_tab_user = ".$resultPermainan['id_tab_user']."
+										";
+								$getUserPer = mysql_query($qrUserPer);
+								$resultUser=mysql_fetch_array($getUserPer);
+							?>
+							<td width='10%'><?php echo $resultUser['nama_depan']." ".$resultUser['nama_belakang']; ?></td>
+							<td width='10%'><a onclick="det(<?php echo $resultPermainan['id_permainan'];?>)" href="#">Detail</a></td>
+						</tr>
+					<?php
+				}
+				?>
+						</tbody>
+				 	</table>
+				 </div>
+				 <script type="text/javascript">
+				 	function det(id_per)
+				 	{
+				 		$("#contents").load('detail.php?pages=3&idPer='+id_per);  
+				 	}
+				 </script>
+				<?php
 	}
 	else if($pageId == 2)
 	{

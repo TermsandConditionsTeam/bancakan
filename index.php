@@ -130,29 +130,6 @@
       </div>
     </header>
     <div id="hhr"></div>
-    <!--nav>
-      <div class="container">
-           <ul style="height:30px; margin-top:10px;margin-left:-20px;list-style: none;" class="navbar-nav">
-              <li style="margin-right:10px;"><a style=" color:white;" href="index.php">Home</a></li>
-              <li style="margin-right:10px"><a style=" color:white;" id="jelajah" href="#">Jelajah</a></li>              
-              <li class="dropdown">
-                <a style="height:30px; margin-right:10px;color:white;margin-top:-10px" href="#" data-toggle="dropdown">Permainan <b class="caret"></b></a>
-                <ul style="margin-top:10px;border:none;background:#ffcc00;" class="dropdown-menu">
-                  <li><a id="cariP" style="color:white"; href="#">Cari Permainan</a></li>
-                  <?php 
-                   /* if(isset($_SESSION['email']))
-                    {
-                      ?>
-                        <li><a id="tambahP" style="color:white"; href="#">Buat Permainanmu Sendiri!</a></li>
-                      <?php
-                    }*/
-                  ?>
-                </ul>
-              </li>
-              <li style="margin-right:10px"><a style="color:white;" href="#">Bantuan</a></li>
-           </ul>
-      </div>
-    </nav-->
 
     <div id="contents" class="content">
       <div class="container">
@@ -162,27 +139,28 @@
               <div style="height:50px; border-radius: 7px 7px 0px 0px;background:#76421c;font-size:18px;color:white;padding:10px 20px;font-weight:bold;">
                 Event Mendatang
               </div>
-              <div style="padding: 10px 15px;margin-bottom:20px;">
-                <div class="eves">
-                  <span style="font-size:25px;font-weight:bold;color:white;">19</span>
-                  <span style="font-size:12px;font-weight:bold;color:white;"><p>Sept</p></span>
-                </div>
-                aaaaaaaaaaaa
-              </div><br/>
-              <div style="padding: 10px 15px;margin-bottom:20px;">
-                <div class="eves">
-                  <span style="font-size:25px;font-weight:bold;color:white;">19</span>
-                  <span style="font-size:12px;font-weight:bold;color:white;"><p>Sept</p></span>
-                </div>
-                aaaaaaaaaaaa
-              </div><br/>
-              <div style="padding: 10px 15px;margin-bottom:20px;">
-                <div class="eves">
-                  <span style="font-size:25px;font-weight:bold;color:white;">19</span>
-                  <span style="font-size:12px;font-weight:bold;color:white;"><p>Sept</p></span>
-                </div>
-                aaaaaaaaaaaa
-              </div><br/>
+              <?php
+
+                $qrEvent = "SELECT nama_event,id_event,tanggal
+                            FROM event
+                            ORDER BY tanggal DESC
+                            LIMIT 0,3
+                            "; 
+                $getEvent = mysql_query($qrEvent);
+                while($resultEvent=mysql_fetch_assoc($getEvent)){
+                  $date = date("d",strtotime($resultEvent['tanggal']));
+                  $month = date("M",strtotime($resultEvent['tanggal']));
+                  ?>
+                    <div style="padding: 10px 15px;margin-bottom:20px;">
+                      <div class="eves">
+                        <span style="font-size:25px;font-weight:bold;color:white;"><?php echo $date;?></span>
+                        <span style="font-size:12px;font-weight:bold;color:white;"><p><?php echo $month;?></p></span>
+                      </div>
+                      <?php echo $resultEvent['nama_event']; ;?>
+                    </div><br/>
+                  <?php
+                }
+              ?>
                <button style="margin-left:35%;margin-top:30px;width:100px;height:40px;" class="btn btn-lg btn-block" type="button">
                 <a id="read" href="#">More</a>
               </button>
@@ -201,31 +179,32 @@
             <div style="float:right;">
             </div>
           </div>
+          <div class="fitur">
+            <div class="container">
+              <div class="row">
+                 <div class="col-xs-4">
+                  <div class="partner-item">
+                    <a href="#"><img src="assets/images/ft_jelajahbudaya.png" alt=""></a>
+                  </div> <!-- /.partner-item -->
+                 </div>
+                 <div class="col-xs-4">
+                  <div class="partner-item">
+                     <a href="#"><img src="assets/images/ft_mulaipermainan.png" alt=""></a>
+                  </div> <!-- /.partner-item -->
+                 </div>
+                 <div class="col-xs-4">
+                  <div class="partner-item">
+                     <a href="#"><img src="assets/images/ft_lencana.png" alt=""></a>
+                  </div> <!-- /.partner-item -->
+                 </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="fitur">
-      <div class="container">
-        <div class="row">
-           <div class="col-xs-4">
-            <div class="partner-item">
-              <a href="#"><img src="assets/images/ft_jelajahbudaya.png" alt=""></a>
-            </div> <!-- /.partner-item -->
-           </div>
-           <div class="col-xs-4">
-            <div class="partner-item">
-               <a href="#"><img src="assets/images/ft_mulaipermainan.png" alt=""></a>
-            </div> <!-- /.partner-item -->
-           </div>
-           <div class="col-xs-4">
-            <div class="partner-item">
-               <a href="#"><img src="assets/images/ft_lencana.png" alt=""></a>
-            </div> <!-- /.partner-item -->
-           </div>
-        </div>
-      </div>
-    </div>
+    
 
     <footer>
       <div class="container">

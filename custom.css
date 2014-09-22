@@ -91,6 +91,7 @@
       }
       .fitur
       {
+        margin-left: -120px;
         margin-top: 20px;
         margin-bottom: 30px;
         padding-left: 20px;
@@ -120,6 +121,7 @@
 
       footer
       {
+        margin-top: 30px;
         padding-left: 20px;
         padding-top: 0;
         padding-right: 20px;

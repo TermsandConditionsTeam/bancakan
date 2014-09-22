@@ -109,6 +109,7 @@
 		$lng = $resultPermainan['long_per'];
 		$mine = $resultPermainan['id_tab_user'];
 		$alamat = 'Tidak Diketahui';
+		$clue = $resultPermainan['clue'];
 		$tanggal = $resultPermainan['tanggal'];
 
 		$temp = $lat * -1;
@@ -202,7 +203,7 @@
 		<script type="text/javascript">
 			$('#carouselh').
 			jsCarousel({ 
-				onthumbnailclick: function(src) { alert(src); }, 
+				onthumbnailclick: function(img) {  }, 
 				autoscroll: false,
 				circular: true,
 				masked: false, 
@@ -211,6 +212,14 @@
 			});
 		</script>
 		<div style="background:white;padding:28px 110px;margin-bottom:30px;height:180px;box-shadow: 2px 3px 2px #888888;">
+			<?php
+				if($pages == 3){
+					echo $clue;
+				}
+				else
+				{
+					?>
+
 			<div id="carouselh">
                 <div>
                     <img alt="" src="assets/images/img_1.jpg" /><br />
@@ -277,6 +286,7 @@
                     <span class="thumbnail-text">Image Text</span>
                 </div>
             </div>
+            <?php }	?>
 		</div>
 		<div style="background:white;padding:2px 2px;margin-bottom:30px;height:auto;box-shadow: 2px 3px 2px #888888;">
 			<form id='comment' method='post'>
