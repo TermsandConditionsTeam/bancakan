@@ -12,23 +12,31 @@
 	if($pages==1)
 	{
 		$ids=$_GET['idBud'];
-		$qrBudaya = "SELECT nama_budaya, lat_bud, long_bud, id_kategori, alamat
-						FROM budaya
-						WHERE id_budaya = ".$ids." ";
-		$getBudaya = mysql_query($qrBudaya);
-		$resultBudaya = mysql_fetch_array($getBudaya);
-		$qrKat = "SELECT nama_file_icon, nama_kategori 
-						FROM kategori 
-						WHERE id_kategori = ".$resultBudaya['id_kategori']."
+		$qrTempatBudaya = "SELECT 
+							t.nama_tempat, 
+							t.lat_bud, 
+							t.long_bud, 
+							t.alamat, 
+							b.id_budaya,
+							b.id_kategori
+						FROM budaya b, budaya_in_loc l, tempat_budaya t
+						WHERE t.id_tempat_budaya = ".$ids." AND l.id_tempat_budaya = t.id_tempat_budaya AND l.id_budaya = b.id_budaya  ";
+
+		$getTempatBudaya = mysql_query($qrTempatBudaya);
+		$resultTempatBudaya = mysql_fetch_array($getTempatBudaya);
+		$qrKat = "SELECT k.nama_file_icon, k.nama_kategori 
+						FROM kategori k, budaya b 
+						WHERE k.id_kategori = ".$resultTempatBudaya['id_kategori']." AND b.id_budaya = ".$resultTempatBudaya['id_budaya']."
 					";
 		$getKat = mysql_query($qrKat);
 		$resultKat=mysql_fetch_array($getKat);
 		$icon = $resultKat['nama_file_icon'];
-		$nama = $resultBudaya['nama_budaya'];
+		$nama = $resultTempatBudaya['nama_tempat'];
 		$kategori = $resultKat['nama_kategori'];
-		$lat = $resultBudaya['lat_bud'];
-		$lng = $resultBudaya['long_bud'];
-		$alamat = $resultBudaya['alamat'];
+		$lat = $resultTempatBudaya['lat_bud'];
+		$lng = $resultTempatBudaya['long_bud'];
+		$alamat = $resultTempatBudaya['alamat'];
+		
 
 		$temp = $lat * -1;
 		$tmod = $temp - floor($temp);
@@ -44,23 +52,32 @@
 	else if($pages == 2)
 	{
 		$ids=$_GET['idEve'];
-		$qrEvent = "SELECT nama_event, lat_ev, long_ev, id_kat_event, alamat
-						FROM event
-						WHERE id_event = ".$ids." ";
+		$qrEvent = "SELECT 
+						e.nama_event,
+						e.alamat, 
+						e.tanggal, 
+						t.lat_bud, 
+						t.long_bud,
+						b.id_kategori
+						FROM event e, budaya_in_loc l, tempat_budaya t, budaya b
+						WHERE id_event = ".$ids." AND l.id_in = e.id_in AND l.id_budaya = b.id_budaya AND l.id_tempat_budaya = t.id_tempat_budaya
+					";
+
 		$getEvent = mysql_query($qrEvent);
 		$resultEvent = mysql_fetch_array($getEvent);
-		$qrKatEvent = "SELECT nama_file_icon, nama_kat
-						FROM kat_event
-						WHERE id_kat_event = ".$resultEvent['id_kat_event']."
+		$qrKatEvent = "SELECT nama_file_icon, nama_kategori
+						FROM kategori
+						WHERE id_kategori = ".$resultEvent['id_kategori']."
 					";
 		$getKatEvent = mysql_query($qrKatEvent);
 		$resultKatEvent=mysql_fetch_array($getKatEvent);
 		$icon = $resultKatEvent['nama_file_icon'];
 		$nama = $resultEvent['nama_event'];
-		$kategori = $resultKatEvent['nama_kat'];
-		$lat = $resultEvent['lat_ev'];
-		$lng = $resultEvent['long_ev'];
+		$kategori = $resultKatEvent['nama_kategori'];
+		$lat = $resultEvent['lat_bud'];
+		$lng = $resultEvent['long_bud'];
 		$alamat = $resultEvent['alamat'];
+		$tanggal = $resultEvent['tanggal'];
 
 		$temp = $lat * -1;
 		$tmod = $temp - floor($temp);
@@ -92,6 +109,7 @@
 		$lng = $resultPermainan['long_per'];
 		$mine = $resultPermainan['id_tab_user'];
 		$alamat = 'Tidak Diketahui';
+		$tanggal = $resultPermainan['tanggal'];
 
 		$temp = $lat * -1;
 		$tmod = $temp - floor($temp);
@@ -122,6 +140,12 @@
 				<ul>
 					<li>Alamat : <?php echo $alamat ;?></li>
 					<li>Koordinat : <?php echo $tD.'°'.$tM.'′'.$tS.'″';?> S <?php echo $lD.'°'.$lM.'′'.$lS.'″' ;?> E </li>
+					<?php
+						if(($pages ==2) || ($pages ==3))
+						{
+					?>
+						<li>Tanggal : <?php echo $tanggal ;?></li>
+					<?php } ?>
 				</ul>
 				<?php
 					if(isset($_SESSION['id_tab_user']))
@@ -149,7 +173,7 @@
 									}
 									else
 									{
-										echo '<button id="subCheck" style="height:35px;line-height: 10px;float:right;width:150px;margin-right:20px" class="btn btn-lg btn-primary btn-block" type="submit">Check In</button>';	
+										echo '<button id="subCheck" style="height:35px;line-height: 10px;float:right;width:150px;margin-right:20px" class="btn btn-lg btn-primary btn-block" type="submit">Ikutin Permainan</button>';	
 									}	
 								}
 								else
@@ -175,8 +199,84 @@
 			</div>
 			<div id="map" style="width: 300px; height: 170px;float:right"></div>
 		</div>
-		<div style="background:white;padding:2px 2px;margin-bottom:30px;height:180px;box-shadow: 2px 3px 2px #888888;">
-			sdsdsds
+		<script type="text/javascript">
+			$('#carouselh').
+			jsCarousel({ 
+				onthumbnailclick: function(src) { alert(src); }, 
+				autoscroll: false,
+				circular: true,
+				masked: false, 
+				itemstodisplay: 8, 
+				orientation: 'h' 
+			});
+		</script>
+		<div style="background:white;padding:28px 110px;margin-bottom:30px;height:180px;box-shadow: 2px 3px 2px #888888;">
+			<div id="carouselh">
+                <div>
+                    <img alt="" src="assets/images/img_1.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_2.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_3.jpg" /><br />
+                	<span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_4.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_5.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_6.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_7.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_8.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_9.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                	<img alt="" src="assets/images/img_10.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_11.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_12.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_13.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_14.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_15.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+                <div>
+                    <img alt="" src="assets/images/img_16.jpg" /><br />
+                    <span class="thumbnail-text">Image Text</span>
+                </div>
+            </div>
 		</div>
 		<div style="background:white;padding:2px 2px;margin-bottom:30px;height:auto;box-shadow: 2px 3px 2px #888888;">
 			<form id='comment' method='post'>
@@ -217,7 +317,7 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
-											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultLoadComment['id_tab_user']."/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>
@@ -241,7 +341,7 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
-											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultLoadComment['id_tab_user']."/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>
@@ -264,7 +364,7 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
-											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultLoadComment['id_tab_user']."/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>

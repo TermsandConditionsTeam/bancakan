@@ -5,7 +5,7 @@
 * Linkedin : id.linkedin.com/in/rifqithomi/
 */
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'budayakita');
+define('DB_NAME', 'bancakan');
 define('DB_USER','root');
 define('DB_PASSWORD','');
 

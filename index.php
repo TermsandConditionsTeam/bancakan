@@ -8,13 +8,14 @@
     <!--link rel="shortcut icon" href="../../assets/ico/favicon.ico"-->
     <title>Bancakan</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.js'></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="jsCarousel-2.0.0.js" type="text/javascript"></script>
+    <link href="jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
     <link href="custom.css" rel="stylesheet">
-    
-
   </head>
   <?php
   include 'dbcon.php';
@@ -68,15 +69,15 @@
           <ul id="navigation" style="height:30px; margin-top:10px;list-style: none;" class="navbar-nav">
               <li style="margin-right:10px;"><a class="aaa active" style="padding-top: 5px; padding-bottom: 5px; color:#76421c;font-size:17px;font-weight:bold;" href="index.php">Home</a></li>
               <li style="margin-right:10px"><a class="aaa" style="padding-top: 5px; padding-bottom: 5px;color:#76421c;font-size:17px;font-weight:bold;" id="jelajah" href="#">Jelajah</a></li>              
-              <li class="dropdown">
-                <a class="aaa" style="height:30px;padding-top: 5px; padding-bottom: 5px; margin-right:10px;color:#76421c;margin-top:-10px;font-size:17px;font-weight:bold;" href="#" data-toggle="dropdown">Permainan <b class="caret"></b></a>
-                <ul style="margin-top:-1px;border:none;background:#f5c39f;" class="dropdown-menu">
+              <li id="per" class="dropdown">
+                <a class="aaa" style="height:30px;padding-top: 5px; padding-bottom: 5px; margin-right:10px;color:#76421c;margin-top:-10px;font-size:17px;font-weight:bold;" href="#" data-toggle="dropdown">Permainan</a>
+                <ul style="margin-top:-1px;border:none;background:#ffffff;" class="dropdown-menu">
                   <li><a id="cariP" style="color:#76421c;font-size:17px;font-weight:bold;" href="#">Cari Permainan</a></li>
                   <?php 
                     if(isset($_SESSION['email']))
                     {
                       ?>
-                        <li><a id="tambahP" style="color:#76421c;font-size:17px;font-weight:bold;" href="#">Buat Permainanmu Sendiri!</a></li>
+                        <li><a id="tambahP" style="color:#76421c;font-size:17px;font-weight:bold;" href="#">Buat Permainan</a></li>
                       <?php
                     }
                   ?>
@@ -116,8 +117,8 @@
                         <li class="dropdown">
                           <a style="height:30px; margin-right:10px;margin-top:-10px" href="#" data-toggle="dropdown"> <b style="margin-top:3px;margin-left:5px;" class="caret"></b></a>
                           <ul class="dropdown-menu">
-                            <li><a href="#">Edit Profile</a></li>
-                            <li><a href="#">Lencanaku</a></li>
+                            <li><a id="prop1" href="#">Edit Profile</a></li>
+                            <li><a id="prop2" href="#">Lencanaku</a></li>
                             <li style="margin-right:10px"><a href="logout.php">Logout</a></li>
                           </ul>
                         </li>
@@ -228,7 +229,9 @@
 
     <footer>
       <div class="container">
-       a
+       <div style="text-align: center;padding:20px 20px">
+        <a style="color:white" href="">About Us</a> &nbsp;
+        <a style="color:white"href="">Help</a>
       </div>
     </footer>
     <div class="footer2">
@@ -275,6 +278,23 @@
            $("#hhr").html('');
           $("#hhr").html('<hr>');
         });
+      $("#prop1").click(function(){
+          $("#contents").load("profile.php?prop=1");
+           $("body").removeClass('idx');
+           $("#hhr").html('');
+          $("#hhr").html('<hr>');
+        });
+      $("#prop2").click(function(){
+          $("#contents").load("profile.php?prop=2");
+           $("body").removeClass('idx');
+           $("#hhr").html('');
+          $("#hhr").html('<hr>');
+        });
+      $("#per").hover(function() {
+        $(this).addClass("open");
+      }, function() {
+        $(this).removeClass("open");
+      });
     </script>
   </body>
 </html>

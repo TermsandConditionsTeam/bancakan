@@ -116,6 +116,8 @@
           padding-left: 0;
       }
 
+
+
       footer
       {
         padding-left: 20px;
@@ -232,3 +234,23 @@
   display: inline-block;
   border-radius: 50%;
 }
+
+.badge
+{
+  float: left;
+  margin: 15px;
+  position: relative;
+  text-align: center;
+  width: 170px;
+  background: #ffffff;
+}
+
+.jscarousal-horizontal
+{
+  background-color: #ffffff;
+  width: auto;
+  border: none;
+  height: auto;
+  padding: 0px;
+}
+
