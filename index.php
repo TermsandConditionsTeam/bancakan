@@ -30,18 +30,19 @@
 
         if($resultFirst)
         {
-          echo '<div id="lencanaFirst" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                  <div class="modal-content">
-                      <div style="padding:10px 20px">
-                        <h3 style="text-align: center;">Selamat, '.$_SESSION['fname'].' '.$_SESSION['lname'].'!</h3>
-                        <span  style="text-align:center;">Anda mendapatkan lencana '.$resultFirst['nama_lencana'].'.</span>
-                        <img style="margin-left:25px;" src="assets/images/badge/'.$resultFirst['nama_file_icon'].'.png" width="200px" height="200px" alt="">
-                      </div>
+          ?>
+          <div id="lencanaFirst" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                  <div style="padding:10px 20px">
+                    <h3 style="text-align: center;">Selamat, <?php echo $_SESSION['fname'].' '.$_SESSION['lname']  ;?>!</h3>
+                    <span  style="text-align:center;">Anda mendapatkan lencana <?php echo $resultFirst['nama_lencana'];?>.</span>
+                    <img style="margin-left:25px;" src="assets/images/badge/<?php echo $resultFirst['nama_file_icon'];?>.png" width="200px" height="200px" alt="">
                   </div>
-                </div>
               </div>
-                ';
+            </div>
+          </div>
+          <?php     
           
           $qrAddLencanaSt ="INSERT INTO user_have_lencana (id_tab_user,id_lencana,tanggal)
                             values ('".$_SESSION['id_tab_user']."','".$resultFirst['id_lencana']."',NOW())";
@@ -91,39 +92,40 @@
             <?php
               if(!isset($_SESSION['email']))
               {
-                echo '
-                      </div>
-                      <ul style="list-style:none;" class="navbar-nav">
-                        <li id = "drops" class="dropdown">
-                          <a style="color:#e8aa00;height:30px; margin-left:-40px;margin-right:10px;margin-top:-30px" href="#"  data-toggle="dropdown">Masuk</a>
-                          <div style="margin-left:-60px;width:280px;margin-top:0px;padding:10px 20px;background:#76421c;border:none;border-radius:10px;" class="dropdown-menu">
-                            <form id="formLogin" name="login" action="login.php" autocomplete="off" role="form" method="post">
-                              <input style="height:35px;margin-bottom:10px;" name="username" id="username" type="text" class="form-control" placeholder="Email" required autofocus>
-                              <input style="height:35px;margin-bottom:10px;" name="pass" id="pass" type="password" class="form-control" placeholder="Password" required>
-                              <button id="subsub" style="height:35px;line-height: 10px;" class="btn btn-lg btn-primary btn-block" type="submit">Masuk</button>
-                            </form>
-                          </div>
-                        </li>
-                        <li> | &nbsp</li>
-                        <li style="margin-right:10px"><a style="color:#e8aa00;" id="daftar" href="#">Daftar</a></li>
-                       </ul> 
-                ';
+                ?>
+                  </div>
+                    <ul style="list-style:none;" class="navbar-nav">
+                      <li id = "drops" class="dropdown">
+                        <a style="color:#e8aa00;height:30px; margin-left:-40px;margin-right:10px;margin-top:-30px" href="#"  data-toggle="dropdown">Masuk</a>
+                        <div style="margin-left:-60px;width:280px;margin-top:0px;padding:10px 20px;background:#76421c;border:none;border-radius:10px;" class="dropdown-menu">
+                          <form id="formLogin" name="login" action="login.php" autocomplete="off" role="form" method="post">
+                            <input style="height:35px;margin-bottom:10px;" name="username" id="username" type="text" class="form-control" placeholder="Email" required autofocus>
+                            <input style="height:35px;margin-bottom:10px;" name="pass" id="pass" type="password" class="form-control" placeholder="Password" required>
+                            <button id="subsub" style="height:35px;line-height: 10px;" class="btn btn-lg btn-primary btn-block" type="submit">Masuk</button>
+                          </form>
+                        </div>
+                      </li>
+                      <li> | &nbsp</li>
+                      <li style="margin-right:10px"><a style="color:#e8aa00;" id="daftar" href="#">Daftar</a></li>
+                     </ul> 
+                <?php
               }
               else
               {
-                echo "Selamat Datang, ".$_SESSION['fname'].' '.$_SESSION['lname'].' !
-                      </div>
-                      <ul style="list-style:none; margin-left:-40px;" class="navbar-nav">
-                        <li class="dropdown">
-                          <a style="height:30px; margin-right:10px;margin-top:-10px" href="#" data-toggle="dropdown"> <b style="margin-top:3px;margin-left:5px;" class="caret"></b></a>
-                          <ul class="dropdown-menu">
-                            <li><a id="prop1" href="#">Edit Profile</a></li>
-                            <li><a id="prop2" href="#">Lencanaku</a></li>
-                            <li style="margin-right:10px"><a href="logout.php">Logout</a></li>
-                          </ul>
-                        </li>
+                ?>
+                Selamat Datang, <?php echo $_SESSION['fname'].' '.$_SESSION['lname'];?> !
+                  </div>
+                  <ul style="list-style:none; margin-left:-40px;" class="navbar-nav">
+                    <li class="dropdown">
+                      <a style="height:30px; margin-right:10px;margin-top:-10px" href="#" data-toggle="dropdown"> <b style="margin-top:3px;margin-left:5px;" class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a id="prop1" href="#">Edit Profile</a></li>
+                        <li><a id="prop2" href="#">Lencanaku</a></li>
+                        <li style="margin-right:10px"><a href="logout.php">Logout</a></li>
                       </ul>
-                  ';
+                    </li>
+                  </ul>
+                <?php
               }
             ?>
         </div>
@@ -170,9 +172,11 @@
               <?php
                 if(!isset($_SESSION['email']))
                 {
-                  echo '<button style="height:60px;width:200px;line-height: 10px;margin-top:100px;background:yellow;" class="btn btn-lg btn-block" type="button">
-                          <a id="gabung" href="#">Gabung Sekarang!</a>
-                        </button>';
+                  ?>
+                  <button style="height:60px;width:200px;line-height: 10px;margin-top:100px;background:yellow;" class="btn btn-lg btn-block" type="button">
+                    <a id="gabung" href="#">Gabung Sekarang!</a>
+                  </button>
+                  <?php
                 }
               ?>             
             </div>

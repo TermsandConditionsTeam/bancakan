@@ -221,70 +221,18 @@
 					?>
 
 			<div id="carouselh">
-                <div>
-                    <img alt="" src="assets/images/img_1.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_2.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_3.jpg" /><br />
-                	<span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_4.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_5.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_6.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_7.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_8.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_9.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                	<img alt="" src="assets/images/img_10.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_11.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_12.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_13.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_14.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_15.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
-                <div>
-                    <img alt="" src="assets/images/img_16.jpg" /><br />
-                    <span class="thumbnail-text">Image Text</span>
-                </div>
+				<?php
+				for($i = 0 ; $i<16;$i++)
+				{
+					?>
+					<div>
+	                    <img alt="" src="assets/images/img_<?php echo $i;?>.jpg" /><br />
+	                    <span class="thumbnail-text">Image Text</span>
+	                </div>
+					<?php
+				}                
+                ?>
+                
             </div>
             <?php }	?>
 		</div>
@@ -488,15 +436,7 @@
                 	var submit = $('#subCheck');
                 	var myLat = e.latlng.lat;
                 	var myLng = e.latlng.lng;
-                	/*if((myLat!=lat)||(myLng!=lng))
-                	{
-                		alert('tidak sama');
-                	}
-                	else
-                	{
-                		alert('sama');
-                	}*/
-                	//e.preventDefault();
+                	
                 	$.ajax({
                 		url : 'checkin.php',
                 		type : 'POST',
