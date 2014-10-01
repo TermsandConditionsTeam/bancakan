@@ -1,3 +1,23 @@
+      /*body
+      {
+        background: url("assets/images/body.png") no-repeat center center; 
+        background-size: 100% 573px;
+        background-position: initial;
+      }*/
+      .idx
+      {
+        background: url("assets/images/body.png") no-repeat center center; 
+        background-size: 100% 573px;
+        background-position: initial;
+      }
+      .eves
+      {
+        background: url("assets/images/lingkaran.png") no-repeat center center;
+        width:60px;
+        height:60px;
+        text-align: center;
+        float:left;
+      }
       header
       {
         padding-left: 20px;
@@ -5,8 +25,8 @@
         padding-right: 20px;
         padding-bottom: 0px;
         min-width: 1280px;
-        min-height: 130px;
-        background:url("assets/images/header.png") repeat;
+        min-height: 90px;
+        background:#ffffff;
       }
       nav
       {
@@ -18,37 +38,49 @@
         min-height: 40px;
         background:url("assets/images/menu.png") repeat;
       }
+      .aaa{
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      .aaa:hover { 
+        background-color: #f5c39f;
+        border-radius:7px;
+      }
+      .aaa.active
+      {
+        background-color: #f5c39f;
+        border-radius:7px;
+      }
       .container
       {
-        width: 970px;
-        
+        width: 1028px;
       }
       .logo
       {
         padding: 10px 20px;
         float:left;
-        
+        margin-top:30px;
         width: 340px;
         height: 100%;
       }
       .login
       {
-        height: 95px;
+        height: 30px;
         width: 280px;
         float:right;
-        padding: 10px 20px;
-        background: #990000;
-        margin-top: 20px;
+        padding: 5px 10px;
+        margin-top: 48px;
         border-radius: 10px;
       }
       .user
       {
-        margin-top: 12px;
         margin-bottom:10px;
-        font-size: 14px;
+        font-size: 17px;
+        font-weight: bold;
       }
       .content
       {
+
         margin-top: 20px;
         padding-left: 20px;
         padding-top: 0;
@@ -59,6 +91,7 @@
       }
       .fitur
       {
+        margin-left: -120px;
         margin-top: 20px;
         margin-bottom: 30px;
         padding-left: 20px;
@@ -84,15 +117,18 @@
           padding-left: 0;
       }
 
+
+
       footer
       {
+        margin-top: 30px;
         padding-left: 20px;
         padding-top: 0;
         padding-right: 20px;
         padding-bottom: 0px;
         min-width: 1280px;
         min-height: 100px;
-        background:url("assets/images/footer.png") repeat;
+        background:#915224;
         bottom: 0;
       }
       .footer2
@@ -103,7 +139,7 @@
         padding-bottom: 0px;
         min-width: 1280px;
         min-height: 40px;
-        background:url("assets/images/footer2.png") repeat;
+        background:#532f15;
         bottom: 0;
       }
       a:focus,a:hover
@@ -111,8 +147,8 @@
         outline: none;
       }
       .isi
-      {
-        min-width: 900px;
+      { 
+        min-width: 980px;
         margin-left: 20px;
       }
       #tick{display:none}
@@ -200,3 +236,23 @@
   display: inline-block;
   border-radius: 50%;
 }
+
+.badge
+{
+  float: left;
+  margin: 15px;
+  position: relative;
+  text-align: center;
+  width: 170px;
+  background: #ffffff;
+}
+
+.jscarousal-horizontal
+{
+  background-color: #ffffff;
+  width: auto;
+  border: none;
+  height: auto;
+  padding: 0px;
+}
+

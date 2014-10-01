@@ -48,78 +48,131 @@
 				   'type'      => 'Feature'
 				);
 		while($resultBud=mysql_fetch_assoc($getBud)){
+
+			$qrTempatBud = "SELECT t.nama_tempat, t.alamat, t.lat_bud, t.long_bud, t.preview, t.nama_file_video, l.id_in,t.id_tempat_budaya
+								FROM tempat_budaya t, budaya b, budaya_in_loc l
+								WHERE l.id_budaya = ".$resultBud['id_budaya']." AND l.id_tempat_budaya = t.id_tempat_budaya AND b.id_budaya = ".$resultBud['id_budaya']."
+							";
+							//echo $qrTempatBud;exit();
+			$getTempatBud = mysql_query($qrTempatBud);
+			//$resultTempatBud = mysql_fetch_array($getTempatBud);
+			while($resultTempatBud=mysql_fetch_assoc($getTempatBud)){
+
+			
+				$geometry = array(
+								'type' => 'Point',
+								'coordinates' => array($resultTempatBud['long_bud'],$resultTempatBud['lat_bud'])
+							);
+
+				//get Icon
+				$qrKat = "SELECT nama_file_icon 
+							FROM kategori 
+							WHERE id_kategori = ".$resultBud['id_kategori']."
+						";
+				$getKat = mysql_query($qrKat);
+				$resultKat=mysql_fetch_array($getKat);
+
+				$icon = array(
+							'iconUrl' => 'assets/images/'.$resultKat['nama_file_icon'].'.png',
+							'iconSize' => array(32,43),
+							'iconAnchor' => array(16,42),
+							'popupAnchor' => array(0,-40),
+							'className' => 'dot'
+						);
+				
+				//get Event
+				$qrEvent = "SELECT * 
+							FROM event
+							WHERE id_in = ".$resultTempatBud['id_in']."
+						";
+				$getEvent = mysql_query($qrEvent);
+				$events = array();
+				while($resultEvent=mysql_fetch_assoc($getEvent)){
+						$events[] = array(
+										'id_event' => $resultEvent['id_event'],
+										'nama_event' => $resultEvent['nama_event'],
+										'alamat' =>  $resultEvent['alamat'],
+										'tanggal' => $resultEvent['tanggal']
+
+									);
+				}
+
+				//get Gallery
+				$qrGal = "SELECT * 
+							FROM gallery
+							WHERE id_budaya = ".$resultTempatBud['id_tempat_budaya']."
+						";
+						//echo $qrGal; exit();
+				$getGal = mysql_query($qrGal);
+				$gals = array();
+				while($resultGal=mysql_fetch_assoc($getGal)){
+						$gals[] = array(
+										'nama_gallery' => $resultGal['nama_gallery'],
+										'tanggal' => $resultGal['tanggal'],
+										'nama_file' => $resultGal['nama_file_gallery']
+									);
+				}
+				
+				
+				
+
+				$propertiess = array(
+								'sejarah' => $resultTempatBud['preview'],
+		                        'event' => $events,
+		                        'galery' => $gals,
+		                        'video' => $resultTempatBud['nama_file_video'],
+								'jenis' => '2',
+								'icon' => $icon,
+								'city' => $resultTempatBud['nama_tempat']
+							);
+
+				$hasil['geometry'] =  $geometry;
+				$hasil['id'] = $resultTempatBud['id_tempat_budaya'];
+				$hasil['properties'] = $propertiess;
+				$hasilss[] = $hasil;
+			}
+		}
+
+		echo json_encode($hasilss);//, JSON_NUMERIC_CHECK);
+	}
+	elseif ($req =="3") {
+		$qrPer = "SELECT * FROM permainan";
+		$getPer = mysql_query($qrPer);
+		$type = "Feature";
+		$hasilss = array();
+		$hasil = array(
+				   'type'      => 'Feature'
+				);
+		while($resultPer=mysql_fetch_assoc($getPer)){
 			$geometry = array(
 							'type' => 'Point',
-							'coordinates' => array($resultBud['long_bud'],$resultBud['lat_bud'])
+							'coordinates' => array($resultPer['long_per'],$resultPer['lat_per'])
 						);
-
-			//get Icon
-			$qrKat = "SELECT nama_file_icon 
-						FROM kategori 
-						WHERE id_kategori = ".$resultBud['id_kategori']."
-					";
-			$getKat = mysql_query($qrKat);
-			$resultKat=mysql_fetch_array($getKat);
-
 			$icon = array(
-						'iconUrl' => 'assets/images/'.$resultKat['nama_file_icon'].'.png',
+						'iconUrl' => 'assets/images/'.$resultPer['nama_file_icon'].'.png',
 						'iconSize' => array(32,43),
 						'iconAnchor' => array(16,42),
 						'popupAnchor' => array(0,-40),
 						'className' => 'dot'
 					);
-			//get Event
-			$qrEvent = "SELECT * 
-						FROM event
-						WHERE id_budaya = ".$resultBud['id_budaya']."
-					";
-			$getEvent = mysql_query($qrEvent);
-			$events = array();
-			while($resultEvent=mysql_fetch_assoc($getEvent)){
-					$events[] = array(
-									'id_event' => $resultEvent['id_event'],
-									'nama_event' => $resultEvent['nama_event'],
-									'tanggal' => $resultEvent['tanggal']
-
-								);
-			}
-
-			//get Gallery
-			$qrGal = "SELECT * 
-						FROM gallery
-						WHERE id_budaya = ".$resultBud['id_budaya']."
-					";
-					//echo $qrGal; exit();
-			$getGal = mysql_query($qrGal);
-			$gals = array();
-			while($resultGal=mysql_fetch_assoc($getGal)){
-					$gals[] = array(
-									'nama_gallery' => $resultGal['nama_gallery'],
-									'tanggal' => $resultGal['tanggal'],
-									'nama_file' => $resultGal['nama_file_gallery']
-								);
-			}
-			
-			
-			
-
 			$propertiess = array(
-							'sejarah' => $resultBud['preview'],
-	                        'event' => $events,
-	                        'galery' => $gals,
-	                        'video' => $resultBud['nama_file_video'],
-							'jenis' => '2',
+							'clue' => $resultPer['clue'],
+	                        'difficult' => $resultPer['difficult'],
+	                        'tanggal' => $resultPer['tanggal'],
+	                        'favorite' => $resultPer['favorite'],
+	                        'mine' => $resultPer['id_tab_user'],
+							'jenis' => '3',
 							'icon' => $icon,
-							'city' => $resultBud['nama_budaya']
+							'city' => $resultPer['nama_per']
 						);
-
 			$hasil['geometry'] =  $geometry;
-			$hasil['id'] = $resultBud['id_budaya'];
+			$hasil['id'] = $resultPer['id_permainan'];
 			$hasil['properties'] = $propertiess;
 			$hasilss[] = $hasil;
-		}
 
+		}
 		echo json_encode($hasilss);//, JSON_NUMERIC_CHECK);
+		
 	}
 	
 
