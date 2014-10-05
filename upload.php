@@ -4,6 +4,7 @@
 * EMAIL : rifqithomi@gmail.com / rifqithomi@yahoo.co.id
 * Linkedin : id.linkedin.com/in/rifqithomi/
 */
+header("Access-Control-Allow-Origin: http://demobacakanbdg.esy.es");
 ob_start();
 session_start();
 include "dbcon.php";

@@ -1,4 +1,5 @@
 <?php
+	header("Access-Control-Allow-Origin: http://demobacakanbdg.esy.es");
 	include 'dbcon.php';
 	include 'checkinconditions.php';
 

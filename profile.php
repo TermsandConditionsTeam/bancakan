@@ -1,4 +1,5 @@
 <?php
+	header("Access-Control-Allow-Origin: http://demobacakanbdg.esy.es");
 	session_start();
 	include 'dbcon.php';
 
