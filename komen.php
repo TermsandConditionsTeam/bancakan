@@ -11,7 +11,7 @@
 		{
 			?>
 				<div style="margin-bottom:20px;">
-					<img title='<?php echo $_SESSION['fname']." ".$_SESSION['lname'];?>' style="float:left;margin-right:10px;"src="assets/user/<?php echo $_SESSION['nama_file_profile']; ?>.png" width="50px" height="50px">
+					<img title='<?php echo $_SESSION['fname']." ".$_SESSION['lname'];?>' style="float:left;margin-right:10px;"src="assets/user/<?php echo $_SESSION['nama_file_profile']; ?>" width="50px" height="50px">
 					<span style='margin-top:-20px;'><?php echo $_POST['isi'];?></span>
 				</div>
 				<hr>
@@ -28,7 +28,7 @@
 		{
 			?>
 				<div style="margin-bottom:20px;">
-					<img title='<?php echo $_SESSION['fname']." ".$_SESSION['lname'];?>' style="float:left;margin-right:10px;"src="assets/user/<?php echo $_SESSION['nama_file_profile']; ?>.png" width="50px" height="50px">
+					<img title='<?php echo $_SESSION['fname']." ".$_SESSION['lname'];?>' style="float:left;margin-right:10px;"src="assets/user/<?php echo $_SESSION['nama_file_profile']; ?>" width="50px" height="50px">
 					<span style='margin-top:-20px;'><?php echo $_POST['isi'];?></span>
 				</div>
 				<hr>
@@ -45,7 +45,7 @@
 		{
 			?>
 				<div style="margin-bottom:20px;">
-					<img title='<?php echo $_SESSION['fname']." ".$_SESSION['lname'];?>' style="float:left;margin-right:10px;"src="assets/user/<?php echo $_SESSION['nama_file_profile']; ?>.png" width="50px" height="50px">
+					<img title='<?php echo $_SESSION['fname']." ".$_SESSION['lname'];?>' style="float:left;margin-right:10px;"src="assets/user/<?php echo $_SESSION['nama_file_profile']; ?>" width="50px" height="50px">
 					<span style='margin-top:-20px;'><?php echo $_POST['isi'];?></span>
 				</div>
 				<hr>

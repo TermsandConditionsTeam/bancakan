@@ -11,7 +11,7 @@
 	$reg = md5('b4nC4k@nA50y');
 
 	$qrDaftar ="INSERT INTO user (password,email,nama_depan,nama_belakang,login_time,nama_file_profile,checkin_time,tanggal_gabung,kode_aktifasi,s_verifikasi)
-				values ('".$password."','".$email."','".$fname."','".$lname."',1,'default',0,NOW(),'".$activation."".$reg."',0)
+				values ('".$password."','".$email."','".$fname."','".$lname."',1,'default.png',0,NOW(),'".$activation."".$reg."',0)
 				";
 	//echo $qrDaftar;exit();
 	$resultDaftar = mysql_query($qrDaftar);
@@ -70,6 +70,7 @@
 		$_SESSION['lname']=$lname;
 		$_SESSION['login_time']=1;
 		$_SESSION['checkin_time']=0;
+		$_SESSION['s_verifikasi']=0;
 		$qrCari = "SELECT id_tab_user,nama_file_profile,tanggal_gabung FROM user where email = '".$email."'";
 		$getCari = mysql_query($qrCari);
 

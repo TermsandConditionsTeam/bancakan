@@ -222,7 +222,7 @@
 
 			<div id="carouselh">
 				<?php
-				for($i = 0 ; $i<16;$i++)
+				for($i = 1 ; $i<=16;$i++)
 				{
 					?>
 					<div>
@@ -275,7 +275,7 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
-											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile']."' width='50px' height='50px'>
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>
@@ -299,7 +299,7 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
-											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile']."' width='50px' height='50px'>
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>
@@ -322,7 +322,7 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
-											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile']."' width='50px' height='50px'>
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>

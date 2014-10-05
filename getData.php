@@ -9,7 +9,7 @@
 		$type = "Feature";
 		$hasilss = array();
 		$hasil = array(
-				   'type'      => 'Feature'
+				   'type' => 'Feature'
 				);
 		while($resultProv=mysql_fetch_assoc($getProv)){
 			$geometry = array(
