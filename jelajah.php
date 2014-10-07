@@ -91,7 +91,11 @@
                         $("#event").click(function(){
                             $("#budayaConts").html('');
                             for (var i = 0; i< e.layer.feature.properties.event.length;i++){
+<<<<<<< HEAD
                                 $("#budayaConts").append("<div class='col-lg-3 col-md-4 col-xs-6 thumb'><a class='thumbnail' href='#'><img src='assets/images/"+e.layer.feature.properties.event[i].nama_file_poster+"' height='160px' width='240px'></a>"+e.layer.feature.properties.event[i].nama_event+"<br/>"+e.layer.feature.properties.event[i].tanggal+"<br/><a onClick='reply_clicks(this.id)' id='detEve"+e.layer.feature.properties.event[i].id_event+"' href='#'>Lihat Detail</a></div>");
+=======
+                                $("#budayaConts").append("<div class='col-lg-3 col-md-4 col-xs-6 thumb'>"+e.layer.feature.properties.event[i].nama_event+"<br/>"+e.layer.feature.properties.event[i].tanggal+"<br/><a onClick='reply_clicks(this.id)' id='detEve"+e.layer.feature.properties.event[i].id_event+"' href='#'>Lihat Detail</a></div>");
+>>>>>>> origin/master
                             }
 
                             

@@ -24,7 +24,11 @@ include "dbcon.php";
 				 	<table style='width:100%' class='table table-hover'>
 				 		<thead>
 							<tr>
+<<<<<<< HEAD
 								<label><h4>Daftar Permainan :</h4></label>
+=======
+								<label><h4>Rekaptulasi Project :</h4></label>
+>>>>>>> origin/master
 							</tr>
 							<tr>
 								<th style='font-size:90%' valign='middle'>
@@ -81,7 +85,11 @@ include "dbcon.php";
 							<td width='10%'><?php echo $resultPermainan['tanggal']; ?></td>
 							<td width='10%'><?php echo $resultPermainan['lat_per']; ?></td>
 							<td width='10%'><?php echo $resultPermainan['long_per']; ?></td>
+<<<<<<< HEAD
 							<td width='10%'><img src="assets/images/<?php echo $resultPermainan['nama_file_icon']; ?>"></td>
+=======
+							<td width='10%'><img src="assets/images/<?php echo $resultPermainan['nama_file_icon']; ?>.png"></td>
+>>>>>>> origin/master
 							<td width='10%'><?php echo $resultPermainan['favorite']; ?></td>
 							<?php
 								$qrUserPer = "SELECT nama_depan, nama_belakang

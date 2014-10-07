@@ -16,12 +16,15 @@
     <link href="jsCarousel-2.0.0.css" rel="stylesheet" type="text/css" />
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.0.1/mapbox.css' rel='stylesheet' />
     <link href="custom.css" rel="stylesheet">
+<<<<<<< HEAD
     <script type="text/javascript">
       $( document ).ready(function(){
         $("body").addClass('idx');
         $("#hhr").html('');
       });
     </script>
+=======
+>>>>>>> origin/master
   </head>
   <?php
   include 'dbcon.php';
@@ -163,6 +166,7 @@
                       <div class="eves">
                         <span style="font-size:25px;font-weight:bold;color:white;"><?php echo $date;?></span>
                         <span style="font-size:12px;font-weight:bold;color:white;"><p><?php echo $month;?></p></span>
+<<<<<<< HEAD
                       </div> 
                       <div style="margin-top:5px;"><?php echo $resultEvent['nama_event']; ?></div>
                       &nbsp;<a onclick="det(<?php echo $resultEvent['id_event'];?>)"  href="#">detail</a>
@@ -176,11 +180,20 @@
                         $("#hhr").html('<hr>');
                       }
                      </script>
+=======
+                      </div>
+                      <?php echo $resultEvent['nama_event']; ;?>
+                    </div><br/>
+>>>>>>> origin/master
                   <?php
                 }
               ?>
                <button style="margin-left:35%;margin-top:30px;width:100px;height:40px;" class="btn btn-lg btn-block" type="button">
+<<<<<<< HEAD
                 <a id="more" href="#">More</a>
+=======
+                <a id="read" href="#">More</a>
+>>>>>>> origin/master
               </button>
             </div>
             <div style="float:left">
@@ -288,6 +301,7 @@
            $("body").removeClass('idx');
            $("#hhr").html('');
           $("#hhr").html('<hr>');
+<<<<<<< HEAD
         });
       $("#per").hover(function() {
         $(this).addClass("open");
@@ -299,7 +313,14 @@
            $("body").removeClass('idx');
            $("#hhr").html('');
           $("#hhr").html('<hr>');
+=======
+>>>>>>> origin/master
         });
+      $("#per").hover(function() {
+        $(this).addClass("open");
+      }, function() {
+        $(this).removeClass("open");
+      });
     </script>
   </body>
 </html>

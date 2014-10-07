@@ -56,8 +56,12 @@
 		$qrEvent = "SELECT 
 						e.nama_event,
 						e.alamat, 
+<<<<<<< HEAD
 						e.tanggal,
 						e.nama_file_poster, 
+=======
+						e.tanggal, 
+>>>>>>> origin/master
 						t.lat_bud, 
 						t.long_bud,
 						b.id_kategori
@@ -80,7 +84,10 @@
 		$lng = $resultEvent['long_bud'];
 		$alamat = $resultEvent['alamat'];
 		$tanggal = $resultEvent['tanggal'];
+<<<<<<< HEAD
 		//$poster = $resultEvent['nama_file_poster'];
+=======
+>>>>>>> origin/master
 
 		$temp = $lat * -1;
 		$tmod = $temp - floor($temp);
@@ -225,7 +232,11 @@
 
 			<div id="carouselh">
 				<?php
+<<<<<<< HEAD
 				for($i = 1 ; $i<=16;$i++)
+=======
+				for($i = 0 ; $i<16;$i++)
+>>>>>>> origin/master
 				{
 					?>
 					<div>
@@ -279,7 +290,11 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
+<<<<<<< HEAD
 											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile']."' width='50px' height='50px'>
+=======
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+>>>>>>> origin/master
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>
@@ -304,7 +319,11 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
+<<<<<<< HEAD
 											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile']."' width='50px' height='50px'>
+=======
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+>>>>>>> origin/master
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>
@@ -328,7 +347,11 @@
 								$resultUser=mysql_fetch_array($getUser);
 								echo "
 										<div style='margin-bottom:20px;'>
+<<<<<<< HEAD
 											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile']."' width='50px' height='50px'>
+=======
+											<img title='".$resultUser['nama_depan']." ".$resultUser['nama_belakang']."' style='float:left;margin-right:10px;' src='assets/user/".$resultUser['nama_file_profile'].".png' width='50px' height='50px'>
+>>>>>>> origin/master
 											<span style='margin-top:-20px;'>".$resultLoadComment['isi']."</span>
 										</div>
 										<hr>

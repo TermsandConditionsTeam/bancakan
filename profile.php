@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
 	header("Access-Control-Allow-Origin: http://demobacakanbdg.esy.es");
+=======
+>>>>>>> origin/master
 	session_start();
 	include 'dbcon.php';
 
@@ -21,6 +24,7 @@
 ?>
 <div class="container">
 	<div class="isi" style="padding:20px 25px;">
+<<<<<<< HEAD
 		<?php
 			if($_SESSION['s_verifikasi']==0)
 			{
@@ -41,6 +45,11 @@
 						<input id="asd" type='file' name='lampiranDok' required>
 					</form>
 				</div>
+=======
+		<div style="margin-bottom:20px;height:200px;">
+			<div style="float:left" class="placeholder">
+				<img width="200px" height="200px" src="assets/user/<?php echo $_SESSION['nama_file_profile'];?>.png">
+>>>>>>> origin/master
 			</div>
 			<div>
 				<span style="position:absolute;margin-top:50px;margin-left:100px;font-size:28px;font-weight:bold">Hi, <?php echo $_SESSION['fname']." ".$_SESSION['lname'];?></span>
@@ -56,7 +65,11 @@
 	                <a id="ln" href="#">Lencana</a>
 	            </button>
 	            <button style="width:200px" class="btn btn-danger btn-lg btn-block" type="button">
+<<<<<<< HEAD
 	                <a id="ttp" href="#">Tutup Akun</a>
+=======
+	                <a href="#">Tutup Akun</a>
+>>>>>>> origin/master
 	            </button>
 			</div>
 		</div>
@@ -67,7 +80,11 @@
 			<div style="padding:50px 150px;height:auto;">
 				<?php if ($prop == 1) {?>
 					<form id="formUpdate" autocomplete="off" role="form" method="post">
+<<<<<<< HEAD
 	                	<input style="height:35px;margin-bottom:10px;" name="email" id="email" type="email" class="form-control" placeholder="Email" required >
+=======
+	                	<input style="height:35px;margin-bottom:10px;" name="email" id="email" type="email" class="form-control" placeholder="Email" required autofocus>
+>>>>>>> origin/master
 	        			<input style="height:35px;margin-bottom:10px;float:left;width:310px;" name="fname" id="fname" type="text" class="form-control" placeholder="Nama Depan" required>
 	        			<input style="height:35px;margin-bottom:10px;float:right;width:310px;" name="lname" id="lname" type="text" class="form-control" placeholder="Nama Belakang" required>
 	        			<input style="height:35px;margin-bottom:10px;" name="pass" id="pass" type="password" class="form-control" placeholder="Password" required>
@@ -124,6 +141,7 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
 
 <div id="alertTtp" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
@@ -154,6 +172,9 @@
     	});
 	});
 
+=======
+<script type="text/javascript">
+>>>>>>> origin/master
 	$("#ak").click(function(){
         $("#contents").load("profile.php?prop=1");
         $("body").removeClass('idx');
@@ -166,6 +187,7 @@
         $("#hhr").html('');
         $("#hhr").html('<hr>');
     });
+<<<<<<< HEAD
     $("#ttp").click(function(){
         $("#alertTtp").modal('show');
     });
@@ -197,4 +219,6 @@
     	});
 	};
     
+=======
+>>>>>>> origin/master
 </script>

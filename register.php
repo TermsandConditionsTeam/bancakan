@@ -11,7 +11,11 @@
 	$reg = md5('b4nC4k@nA50y');
 
 	$qrDaftar ="INSERT INTO user (password,email,nama_depan,nama_belakang,login_time,nama_file_profile,checkin_time,tanggal_gabung,kode_aktifasi,s_verifikasi)
+<<<<<<< HEAD
 				values ('".$password."','".$email."','".$fname."','".$lname."',1,'default.png',0,NOW(),'".$activation."".$reg."',0)
+=======
+				values ('".$password."','".$email."','".$fname."','".$lname."',1,'default',0,NOW(),'".$activation."".$reg."',0)
+>>>>>>> origin/master
 				";
 	//echo $qrDaftar;exit();
 	$resultDaftar = mysql_query($qrDaftar);
@@ -41,8 +45,13 @@
                         <br/><br/>
                         Please verify your email and get started using your Bancakan account. Thank You<BR><BR>
 
+<<<<<<< HEAD
                         Please click <strong><a href='".$base_url."activation.php?code=".$activation."'>this</a></strong> link to active your account.
                         
+=======
+                        Please click this link to active your account.
+                        ".$base_url."activation.php?code=".$activation."
+>>>>>>> origin/master
 
                         Happy Explore!<BR><BR>
                         Best Regards,<BR>
@@ -70,7 +79,10 @@
 		$_SESSION['lname']=$lname;
 		$_SESSION['login_time']=1;
 		$_SESSION['checkin_time']=0;
+<<<<<<< HEAD
 		$_SESSION['s_verifikasi']=0;
+=======
+>>>>>>> origin/master
 		$qrCari = "SELECT id_tab_user,nama_file_profile,tanggal_gabung FROM user where email = '".$email."'";
 		$getCari = mysql_query($qrCari);
 

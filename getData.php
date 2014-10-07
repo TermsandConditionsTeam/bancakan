@@ -73,7 +73,11 @@
 				$resultKat=mysql_fetch_array($getKat);
 
 				$icon = array(
+<<<<<<< HEAD
 							'iconUrl' => 'assets/images/'.$resultKat['nama_file_icon'].'',
+=======
+							'iconUrl' => 'assets/images/'.$resultKat['nama_file_icon'].'.png',
+>>>>>>> origin/master
 							'iconSize' => array(32,43),
 							'iconAnchor' => array(16,42),
 							'popupAnchor' => array(0,-40),
@@ -92,6 +96,7 @@
 										'id_event' => $resultEvent['id_event'],
 										'nama_event' => $resultEvent['nama_event'],
 										'alamat' =>  $resultEvent['alamat'],
+<<<<<<< HEAD
 										'tanggal' => $resultEvent['tanggal'],
 										'nama_file_poster' => $resultEvent['nama_file_poster']
 
@@ -127,6 +132,42 @@
 								'city' => $resultTempatBud['nama_tempat']
 							);
 
+=======
+										'tanggal' => $resultEvent['tanggal']
+
+									);
+				}
+
+				//get Gallery
+				$qrGal = "SELECT * 
+							FROM gallery
+							WHERE id_budaya = ".$resultTempatBud['id_tempat_budaya']."
+						";
+						//echo $qrGal; exit();
+				$getGal = mysql_query($qrGal);
+				$gals = array();
+				while($resultGal=mysql_fetch_assoc($getGal)){
+						$gals[] = array(
+										'nama_gallery' => $resultGal['nama_gallery'],
+										'tanggal' => $resultGal['tanggal'],
+										'nama_file' => $resultGal['nama_file_gallery']
+									);
+				}
+				
+				
+				
+
+				$propertiess = array(
+								'sejarah' => $resultTempatBud['preview'],
+		                        'event' => $events,
+		                        'galery' => $gals,
+		                        'video' => $resultTempatBud['nama_file_video'],
+								'jenis' => '2',
+								'icon' => $icon,
+								'city' => $resultTempatBud['nama_tempat']
+							);
+
+>>>>>>> origin/master
 				$hasil['geometry'] =  $geometry;
 				$hasil['id'] = $resultTempatBud['id_tempat_budaya'];
 				$hasil['properties'] = $propertiess;
@@ -150,7 +191,11 @@
 							'coordinates' => array($resultPer['long_per'],$resultPer['lat_per'])
 						);
 			$icon = array(
+<<<<<<< HEAD
 						'iconUrl' => 'assets/images/'.$resultPer['nama_file_icon'].'',
+=======
+						'iconUrl' => 'assets/images/'.$resultPer['nama_file_icon'].'.png',
+>>>>>>> origin/master
 						'iconSize' => array(32,43),
 						'iconAnchor' => array(16,42),
 						'popupAnchor' => array(0,-40),
