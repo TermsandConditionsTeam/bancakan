@@ -8,7 +8,7 @@
 	$cl = $_POST['clue'];
 	$df = $_POST['df'];
 	$qrTambah =" INSERT INTO permainan (lat_per,long_per, nama_per, nama_file_icon, favorite, clue, difficult, tanggal, id_tab_user)
-					values (".$lat.",".$lng.",'".$nama."','map-marker2-permainan(32xx)',0,'".$cl."',".$df.",NOW(),".$_SESSION['id_tab_user'].")
+					values (".$lat.",".$lng.",'".$nama."','map-marker2-permainan(32xx).png',0,'".$cl."',".$df.",NOW(),".$_SESSION['id_tab_user'].")
 				";
 	$resultTambah = mysql_query($qrTambah);
 
