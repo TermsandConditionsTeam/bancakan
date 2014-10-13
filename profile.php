@@ -26,7 +26,7 @@
 			{
 				?>
 					<div class="alert alert-warning fade in" role="alert">
-					    Akun anda belum terverifikasi!
+					   Anda belum melakukan verifikasi email, silahkan verifikasi email anda dahulu!
 					</div>
 				<?php
 			}
@@ -49,22 +49,16 @@
 				<span style="position:absolute;margin-top:50px;margin-left:100px;font-size:12px;font-weight:bold">Bergabung sejak <?php echo $_SESSION['tanggal_gabung'];?></span>
 			</div>
 			<div style="float:right;margin-right:50px;margin-top:-25px;">
-				<button style="width:200px" class="btn btn-lg btn-block" type="button">
-	                <a id="ak" href="#">Akun</a>
-	            </button>
-	            <button style="width:200px" class="btn btn-lg btn-block" type="button">
-	                <a id="ln" href="#">Lencana</a>
-	            </button>
-	            <button style="width:200px" class="btn btn-danger btn-lg btn-block" type="button">
-	                <a id="ttp" href="#">Tutup Akun</a>
-	            </button>
+				<a style="width:200px" class="btn btn-lg btn-block" id="ak" href="#">Akun</a>
+	            <a style="width:200px" class="btn btn-lg btn-block" id="ln" href="#">Lencana</a>
+	            <a style="width:200px" class="btn btn-lg btn-block" id="ttp" href="#">Tutup Akun</a>
 			</div>
 		</div>
-		<div style="border: 1px solid; border-color:grey;">
-			<div style="background:#915224;padding:5px 10px;">
-				<font style="font-size:20px;font-weight:bold;color:#ffffff;"><?php echo $head;?></font>
+		<div style="border-radius:5px 5px 0 0; ">
+			<div id="judul_prof">
+				<h2><?php echo $head;?></h2>
 			</div>
-			<div style="padding:50px 150px;height:auto;">
+			<div id="isi_prof">
 				<?php if ($prop == 1) {?>
 					<form id="formUpdate" autocomplete="off" role="form" method="post">
 	                	<input style="height:35px;margin-bottom:10px;" name="email" id="email" type="email" class="form-control" placeholder="Email" required >
@@ -89,7 +83,7 @@
 								?>
 									<div class='badge'>
 			            				<a class='thumbnail' href='#'>
-			            					<img src='assets/images/badge/badge-newcomer.png' height='240px' width='160px'title="<?php echo $resultLen['nama_lencana'];?>">
+			            					<img src="assets/images/badge/<?php echo $resultLen['nama_file_icon'];?>" height='240px' width='160px'title="<?php echo $resultLen['nama_lencana'];?>">
 										</a>	            					
 			            				<p>
 			            					<a href="#"><?php echo $resultLen['nama_lencana'];?></a>

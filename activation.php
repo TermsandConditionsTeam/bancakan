@@ -20,6 +20,7 @@ if($count == 1)
 	$resultCekUdah=mysql_fetch_array($getCekUdah);
 	$counts = mysql_num_rows($getCekUdah);
 	if ($counts == 1) {
+		$_SESSION['s_verifikasi']=1;
 		$qrVerified = "UPDATE user SET s_verifikasi = 1 WHERE id_tab_user = ".$resultCekUdah['id_tab_user']."";
 		$resultUpdate =  mysql_query($qrVerified);
 		if ($resultUpdate) {

@@ -73,7 +73,7 @@
 				$resultKat=mysql_fetch_array($getKat);
 
 				$icon = array(
-							'iconUrl' => 'assets/images/'.$resultKat['nama_file_icon'].'.png',
+							'iconUrl' => 'assets/images/'.$resultKat['nama_file_icon'].'',
 							'iconSize' => array(32,43),
 							'iconAnchor' => array(16,42),
 							'popupAnchor' => array(0,-40),
@@ -92,7 +92,9 @@
 										'id_event' => $resultEvent['id_event'],
 										'nama_event' => $resultEvent['nama_event'],
 										'alamat' =>  $resultEvent['alamat'],
-										'tanggal' => $resultEvent['tanggal']
+										'tanggal_open' => $resultEvent['tanggal_open'],
+										'tanggal_close' => $resultEvent['tanggal_close'],
+										'nama_file_poster' => $resultEvent['nama_file_poster']
 
 									);
 				}
@@ -100,7 +102,7 @@
 				//get Gallery
 				$qrGal = "SELECT * 
 							FROM gallery
-							WHERE id_budaya = ".$resultTempatBud['id_tempat_budaya']."
+							WHERE id_tempat_budaya = ".$resultTempatBud['id_tempat_budaya']."
 						";
 						//echo $qrGal; exit();
 				$getGal = mysql_query($qrGal);
@@ -149,7 +151,7 @@
 							'coordinates' => array($resultPer['long_per'],$resultPer['lat_per'])
 						);
 			$icon = array(
-						'iconUrl' => 'assets/images/'.$resultPer['nama_file_icon'].'.png',
+						'iconUrl' => 'assets/images/'.$resultPer['nama_file_icon'].'',
 						'iconSize' => array(32,43),
 						'iconAnchor' => array(16,42),
 						'popupAnchor' => array(0,-40),
