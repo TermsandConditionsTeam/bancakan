@@ -1,5 +1,12 @@
 <?php
+<<<<<<< HEAD
 	header("Access-Control-Allow-Origin: http://demobacakanbdg.esy.es");
+=======
+<<<<<<< HEAD
+	header("Access-Control-Allow-Origin: http://demobacakanbdg.esy.es");
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 	session_start();
 	include 'dbcon.php';
 
@@ -21,12 +28,20 @@
 ?>
 <div class="container">
 	<div class="isi" style="padding:20px 25px;">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 		<?php
 			if($_SESSION['s_verifikasi']==0)
 			{
 				?>
 					<div class="alert alert-warning fade in" role="alert">
+<<<<<<< HEAD
 					   Anda belum melakukan verifikasi email, silahkan verifikasi email anda dahulu!
+=======
+					    Akun anda belum terverifikasi!
+>>>>>>> origin/master
 					</div>
 				<?php
 			}
@@ -41,6 +56,14 @@
 						<input id="asd" type='file' name='lampiranDok' required>
 					</form>
 				</div>
+<<<<<<< HEAD
+=======
+=======
+		<div style="margin-bottom:20px;height:200px;">
+			<div style="float:left" class="placeholder">
+				<img width="200px" height="200px" src="assets/user/<?php echo $_SESSION['nama_file_profile'];?>.png">
+>>>>>>> origin/master
+>>>>>>> origin/master
 			</div>
 			<div>
 				<span style="position:absolute;margin-top:50px;margin-left:100px;font-size:28px;font-weight:bold">Hi, <?php echo $_SESSION['fname']." ".$_SESSION['lname'];?></span>
@@ -49,6 +72,7 @@
 				<span style="position:absolute;margin-top:50px;margin-left:100px;font-size:12px;font-weight:bold">Bergabung sejak <?php echo $_SESSION['tanggal_gabung'];?></span>
 			</div>
 			<div style="float:right;margin-right:50px;margin-top:-25px;">
+<<<<<<< HEAD
 				<a style="width:200px" class="btn btn-lg btn-block" id="ak" href="#">Akun</a>
 	            <a style="width:200px" class="btn btn-lg btn-block" id="ln" href="#">Lencana</a>
 	            <a style="width:200px" class="btn btn-lg btn-block" id="ttp" href="#">Tutup Akun</a>
@@ -62,6 +86,35 @@
 				<?php if ($prop == 1) {?>
 					<form id="formUpdate" autocomplete="off" role="form" method="post">
 	                	<input style="height:35px;margin-bottom:10px;" name="email" id="email" type="email" class="form-control" placeholder="Email" required >
+=======
+				<button style="width:200px" class="btn btn-lg btn-block" type="button">
+	                <a id="ak" href="#">Akun</a>
+	            </button>
+	            <button style="width:200px" class="btn btn-lg btn-block" type="button">
+	                <a id="ln" href="#">Lencana</a>
+	            </button>
+	            <button style="width:200px" class="btn btn-danger btn-lg btn-block" type="button">
+<<<<<<< HEAD
+	                <a id="ttp" href="#">Tutup Akun</a>
+=======
+	                <a href="#">Tutup Akun</a>
+>>>>>>> origin/master
+	            </button>
+			</div>
+		</div>
+		<div style="border: 1px solid; border-color:grey;">
+			<div style="background:#915224;padding:5px 10px;">
+				<font style="font-size:20px;font-weight:bold;color:#ffffff;"><?php echo $head;?></font>
+			</div>
+			<div style="padding:50px 150px;height:auto;">
+				<?php if ($prop == 1) {?>
+					<form id="formUpdate" autocomplete="off" role="form" method="post">
+<<<<<<< HEAD
+	                	<input style="height:35px;margin-bottom:10px;" name="email" id="email" type="email" class="form-control" placeholder="Email" required >
+=======
+	                	<input style="height:35px;margin-bottom:10px;" name="email" id="email" type="email" class="form-control" placeholder="Email" required autofocus>
+>>>>>>> origin/master
+>>>>>>> origin/master
 	        			<input style="height:35px;margin-bottom:10px;float:left;width:310px;" name="fname" id="fname" type="text" class="form-control" placeholder="Nama Depan" required>
 	        			<input style="height:35px;margin-bottom:10px;float:right;width:310px;" name="lname" id="lname" type="text" class="form-control" placeholder="Nama Belakang" required>
 	        			<input style="height:35px;margin-bottom:10px;" name="pass" id="pass" type="password" class="form-control" placeholder="Password" required>
@@ -83,7 +136,11 @@
 								?>
 									<div class='badge'>
 			            				<a class='thumbnail' href='#'>
+<<<<<<< HEAD
 			            					<img src="assets/images/badge/<?php echo $resultLen['nama_file_icon'];?>" height='240px' width='160px'title="<?php echo $resultLen['nama_lencana'];?>">
+=======
+			            					<img src='assets/images/badge/badge-newcomer.png' height='240px' width='160px'title="<?php echo $resultLen['nama_lencana'];?>">
+>>>>>>> origin/master
 										</a>	            					
 			            				<p>
 			            					<a href="#"><?php echo $resultLen['nama_lencana'];?></a>
@@ -118,6 +175,10 @@
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 
 <div id="alertTtp" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-sm">
@@ -148,6 +209,12 @@
     	});
 	});
 
+<<<<<<< HEAD
+=======
+=======
+<script type="text/javascript">
+>>>>>>> origin/master
+>>>>>>> origin/master
 	$("#ak").click(function(){
         $("#contents").load("profile.php?prop=1");
         $("body").removeClass('idx');
@@ -160,6 +227,10 @@
         $("#hhr").html('');
         $("#hhr").html('<hr>');
     });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
     $("#ttp").click(function(){
         $("#alertTtp").modal('show');
     });
@@ -191,4 +262,9 @@
     	});
 	};
     
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </script>

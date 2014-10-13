@@ -76,6 +76,7 @@
 		$resultUpdate =  mysql_query($qrUpdate);
 	}
 	else if ($_POST['pages'] == 3) {
+<<<<<<< HEAD
 		$cFirstPer = $conditions->cekBanyakCekinPermainan($ids, $_SESSION['id_tab_user']);
 		if ($cFirstPer==0) {
 			$qrLencana = "SELECT 
@@ -110,6 +111,8 @@
 				<?php
 			}	
 		}
+=======
+>>>>>>> origin/master
 		$qrCheckin = "INSERT INTO chekin_per (id_tab_user,id_permainan,tanggal)
 						values (".$_POST['iduser'].",".$_POST['ids'].",NOW()) 
 						";

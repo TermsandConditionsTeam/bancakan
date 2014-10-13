@@ -5,7 +5,15 @@
 	$email = $_POST['username'];
 	$pass = md5($_POST['pass']);
 
+<<<<<<< HEAD
 	$qrlogin = "SELECT id_tab_user, email, nama_depan, nama_belakang,login_time,nama_file_profile, checkin_time,tanggal_gabung, s_verifikasi FROM user where email = '".$email."' AND password = '".$pass."'";
+=======
+<<<<<<< HEAD
+	$qrlogin = "SELECT id_tab_user, email, nama_depan, nama_belakang,login_time,nama_file_profile, checkin_time,tanggal_gabung, s_verifikasi FROM user where email = '".$email."' AND password = '".$pass."'";
+=======
+	$qrlogin = "SELECT id_tab_user, email, nama_depan, nama_belakang,login_time,nama_file_profile, checkin_time,tanggal_gabung FROM user where email = '".$email."' AND password = '".$pass."'";
+>>>>>>> origin/master
+>>>>>>> origin/master
 	$getUser = mysql_query($qrlogin);
 	$result=mysql_fetch_array($getUser);
 	$count=mysql_num_rows($getUser);
