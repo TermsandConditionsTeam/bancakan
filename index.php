@@ -1,3 +1,7 @@
+<?php
+	include 'dbcon.php';
+  session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,9 +27,7 @@
     </script>
 </head>
 
-<?php
-  include 'dbcon.php';
-  session_start();
+<?php  
    $new = false;
     if(isset($_SESSION['login_time']))
     {
