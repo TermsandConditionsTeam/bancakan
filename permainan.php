@@ -114,21 +114,21 @@
 			{
 				?>
 					<form id="formBuat">
-						<table border="1" width="100%">
+						<table border="0" width="100%">
 							<tr>
-								<td colspan="2"><input style="height:35px;" name="namaGame" id="namaGame" type="text" class="form-control" placeholder="Nama Permainan.." required autofocus></td>
+								<td colspan="2" style="padding:10px 0;"><input style="height:35px;" name="namaGame" id="namaGame" type="text" class="form-control" placeholder="Nama Permainan.." required autofocus></td>
 							</tr>
 							<tr>
-								<td colspan="2"><div id="map" style="width:auto; height: 250px"></div></td>
+								<td colspan="2" style="padding:10px 0;"><div id="map" style="width:auto; height: 250px"></div></td>
 							</tr>
 							<tr>
-								<td width="20%">Area Lokasi</td>
+								<td width="20%" style="padding:10px 0;">Area Lokasi</td>
 								<td width="80%">
 									<span id="lats"></span> &nbsp; <span id="lngs"></span>
 								</td>
 							</tr>
 							<tr>
-								<td width="20%">Tingkat Kesulitan</td>
+								<td width="20%" style="padding:10px 0;">Tingkat Kesulitan</td>
 								<td width="80%">
 									<select name="df" style="height:20px;" type="date">
 										<option value='1'>Easy</option>
@@ -138,14 +138,14 @@
 								</td>
 							</tr>
 							<tr>
-								<td width="20%">Petunjuk</td>
+								<td width="20%" style="padding:10px 0;">Petunjuk</td>
 								<td width="80%">
 									<textarea style='resize:none;width:100%;' name="clue" id ="clue" class="form-control" rows="15" required></textarea>
 								</td>
 							</tr>
 							<tr>
-								<td colspan="2" align="right">
-									<button id="subTambah" class="btn btn-lg btn-primary btn-block" type="submit">Tambah</button>
+								<td colspan="2" style="padding:10px 0;">
+									<button id="subTambah" style="float:right;" class="btn btn-lg btn-primary btn-block" type="submit">Tambah</button>
 									<input id="lati" name ='lati' type='hidden' class='form-control'  value='' readonly='yes'>
 									<input id="lngi" name ='lngi' type='hidden' class='form-control'  value='' readonly='yes'>
 								</td>
